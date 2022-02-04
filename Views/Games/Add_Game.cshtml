@@ -1,0 +1,43 @@
+﻿@model ASP_MOM2.Models.GameModel
+@{
+    ViewData["Title"] = "Games";
+    ViewBag.Subpage = "Add_Game";
+}
+<div id="addGameContainer">
+    <div>
+        <h2>Add a Game</h2>
+    </div>
+    <form method="post">
+        <label asp-for="Title"></label><span class="alert" asp-validation-for="Title"></span>
+        <input asp-for="Title" />
+
+
+        <label asp-for="Description"></label><span class="alert" asp-validation-for="Description"></span>
+        <textarea asp-for="Description"></textarea>
+
+
+        <label asp-for="Image"></label><span class="alert" asp-validation-for="Image"></span>
+        <input asp-for="Image" />
+
+
+        <label asp-for="Trailer"></label><span class="alert" asp-validation-for="Trailer"></span>
+        <input asp-for="Trailer" />
+
+        <label asp-for="Trailer"></label><span class="alert" asp-validation-for="Trailer"></span>
+        <input asp-for="Trailer" />
+
+        <label asp-for="Age"></label><span class="alert" asp-validation-for="Age"></span>
+                                     <select asp-for="Age">
+                                         <option value="3">3</option>
+                                         <option value="7">7</option>
+                                         <option value="12">12</option>
+                                         <option value="16">16</option>
+                                         <option value="18">18</option>
+                                     </select>
+
+        <label asp-for="Rating"></label><span class="alert" asp-validation-for="Rating"></span>
+        <input type="number" asp-for="Rating" />
+
+        <input type="submit" value="Add Game" />
+    </form>
+</div>

@@ -1,0 +1,38 @@
+﻿@model List<ASP_MOM2.Models.GameModel>
+
+@{
+    ViewData["Title"] = "Games";
+}
+
+@Html.Partial("_Important")
+
+<div>
+    <h2>Games</h2>
+</div>
+<div id="addGameLink">
+    <a asp-controller="Games" asp-action="Add_Game">Add Game</a>
+</div>
+<div id="gamesContainer">
+    @if (Model != null)
+    {
+        @foreach (var game in Model)
+        {
+            <div class="game_div">
+                <div class="titlePictureDiv">
+                    <h3>@game.Title</h3>
+                    <picture>
+                        <img src=@game.Image alt=@game.Title />
+                    </picture>
+                </div>
+                <p>@game.Description</p>
+                <p>PEGI @game.Age</p>
+                <p>Author Rating: @game.Age</p>
+
+                <div class="trailer">
+                    <iframe src=@game.Trailer title=@game.Title allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+
+        }
+    }
+</div>

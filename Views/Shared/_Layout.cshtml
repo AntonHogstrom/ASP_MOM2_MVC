@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - ASP_MOM2</title>
+    <link rel="stylesheet" href="~/css/main.css" asp-append-version="true" />
+</head>
+<body>
+    <header>
+        <div id="visited"><span>Last Visit of page: @ViewBag.Visited</span></div>
+        <div id="titleDiv"><h1>MVC</h1></div>
+        <nav id="mainNav">
+            <ul>
+                <li>
+                    <a asp-controller="Home" asp-action="Index">Home</a>
+                </li>
+                <li>
+                    <a asp-controller="Games" asp-action="Index">Games</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div id="breadDiv">
+            <span>
+                / <a asp-controller="Home" asp-action="Index">Home</a> /
+            </span>
+            @if (ViewData["Title"] != "Home")
+            {
+                <span>
+                    <a asp-controller=@ViewData["Title"] asp-action="Index">@ViewData["Title"]</a> /
+                </span>
+            }
+            @if (ViewBag.Subpage != null)
+            {
+                <span>
+                    <a asp-controller=@ViewData["Title"] asp-action=@ViewBag.Subpage>@ViewBag.Subpage</a> /
+                </span>
+            }
+
+        </div>
+        @RenderBody()
+    </main>
+    <footer>
+        <ul>
+            <li>Anton Högström</li>
+            <li>DT191G</li>
+            <li>ASP.NET MVC</li>
+        </ul>
+    </footer>
+</body>
+</html>
+
